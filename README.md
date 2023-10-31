@@ -1,6 +1,6 @@
-# flutter_ukit
+# Flutter UKit
 
-A new Flutter plugin project.
+Flutter UKit is a large compilation of reusable and easy-to-use UI components, templates, styles, resources and other useful digital assets that can be used to create user interface designs.
 
 ## Getting Started
 
@@ -13,6 +13,16 @@ For help getting started with Flutter development, view the
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-The plugin project was generated without specifying the `--platforms` flag, no platforms are currently supported.
-To add platforms, run `flutter create -t plugin --platforms <platforms> .` in this directory.
-You can also find a detailed instruction on how to add platforms in the `pubspec.yaml` at https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
+
+### Available Feature
+| Feature                | Status|
+| :---                   | :---: |
+| Typography             |   ✔️   |
+| Container              |   ✔️   |
+| Shimmer Loading        |   ✔️   |
+| Buttons                |   ✔️   |
+| Dialog                 |   🚧  |
+| Form Control           |   🚧  |
+
+## More examples
+See the `example` folder for more code samples of the various possibilities.
