@@ -1,62 +1,143 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-
-import 'package:flutter/services.dart';
-import 'package:flutter_ukit/flutter_ukit.dart';
+import 'screen/button_screen.dart';
+import 'screen/container_screen.dart';
+import 'screen/dialog_screen.dart';
+import 'screen/form_screen.dart';
+import 'screen/shimmer_screen.dart';
+import 'screen/typography_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      title: 'Flutter UI Kit',
+      home: HomeScreen(),
+    );
+  }
 }
 
-class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
-  final _flutterUkitPlugin = FlutterUkit();
-
-  @override
-  void initState() {
-    super.initState();
-    initPlatformState();
-  }
-
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
-    try {
-      platformVersion =
-          await _flutterUkitPlugin.getPlatformVersion() ?? 'Unknown platform version';
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
-  }
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Flutter UI Kit'),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const UserAccountsDrawerHeader(
+              accountName: Text(
+                'Flutter UI Kit',
+              ),
+              accountEmail: Text(
+                'version 1.0.0',
+              ),
+              currentAccountPicture: CircleAvatar(
+                child: FlutterLogo(size: 42.0),
+              ),
+            ),
+            ExpansionTile(
+              title: const Text("Contents"),
+              leading: const Icon(Icons.content_copy),
+              childrenPadding: const EdgeInsets.only(left: 60),
+              children: [
+                ListTile(
+                  title: const Text('Typography'),
+                  trailing: const Icon(Icons.arrow_forward_ios, size: 18),
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const TypographyScreen(),
+                      ),
+                    );
+                  },
+                ),
+                ListTile(
+                  title: const Text('Container'),
+                  trailing: const Icon(Icons.arrow_forward_ios, size: 18),
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const ContainerScreen(),
+                      ),
+                    );
+                  },
+                ),
+                ListTile(
+                  title: const Text('Shimmer'),
+                  trailing: const Icon(Icons.arrow_forward_ios, size: 18),
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const ShimmerScreen(),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+            ExpansionTile(
+              title: const Text("Components"),
+              leading: const Icon(Icons.widgets),
+              childrenPadding: const EdgeInsets.only(left: 60),
+              children: [
+                ListTile(
+                  title: const Text('Button'),
+                  trailing: const Icon(Icons.arrow_forward_ios, size: 18),
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const ButtonScreen(),
+                      ),
+                    );
+                  },
+                ),
+                ListTile(
+                  title: const Text('Dialog'),
+                  trailing: const Icon(Icons.arrow_forward_ios, size: 18),
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const DialogScreen(),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+            ExpansionTile(
+              title: const Text("Forms"),
+              leading: const Icon(Icons.layers_outlined),
+              childrenPadding: const EdgeInsets.only(left: 60),
+              children: [
+                ListTile(
+                  title: const Text('Form Control'),
+                  trailing: const Icon(Icons.arrow_forward_ios, size: 18),
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const FormScreen(),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ],
         ),
-        body: Center(
-          child: Text('Running on: $_platformVersion\n'),
-        ),
+      ),
+      body: const Center(
+        child: Text('Welcome'),
       ),
     );
   }
