@@ -5,12 +5,14 @@ export 'models/ukit_action.dart';
 export 'models/ukit_defaults.dart';
 export 'models/button_defaults.dart';
 export 'models/shimmer_defaults.dart';
-export 'models/typography_defaults.dart';
-export 'models/container_defaults.dart';
+export 'models/checkbox_defaults.dart';
 export 'models/textfield_defaults.dart';
+export 'models/container_defaults.dart';
+export 'models/typography_defaults.dart';
 
 // Style
 export 'src/forms/texfield.dart';
+export 'src/forms/checkbox.dart';
 export 'src/contents/container.dart';
 export 'src/contents/typography.dart';
 export 'src/contents/shimmer/shimmer.dart';
