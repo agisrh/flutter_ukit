@@ -1,12 +1,12 @@
 // ignore_for_file: non_constant_identifier_names
 import 'package:flutter/material.dart';
 import 'package:flutter_ukit/flutter_ukit_utils.dart';
-import 'package:flutter_ukit/models/button_defaults.dart';
+import 'package:flutter_ukit/models/button_builder.dart';
 import 'package:flutter_ukit/src/contents/typography.dart';
 
 /// Button Content
 Widget UKitButtonContent(
-  UKitButtonDefaults? as,
+  UKitButtonBuilder? as,
   String? label,
   Color? labelColor,
   TextStyle? labelStyle,
@@ -82,7 +82,7 @@ Widget UKitButtonContent(
 
 /// Button Label
 Widget UIButtonLabel(
-  UKitButtonDefaults? as,
+  UKitButtonBuilder? as,
   String? label,
   Color? labelColor,
   TextStyle? labelStyle,
@@ -98,7 +98,7 @@ Widget UIButtonLabel(
   }
 }
 
-Widget UKitButtonLoading(UKitButtonDefaults? as, Color? labelColor) {
+Widget UKitButtonLoading(UKitButtonBuilder? as, Color? labelColor) {
   return SizedBox(
     height: 20,
     width: 20,

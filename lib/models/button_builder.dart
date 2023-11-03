@@ -1,9 +1,10 @@
+
 // ignore_for_file: constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'ukit_defaults.dart';
+import 'ukit_builder.dart';
 
-class UKitButtonDefaults extends UKitDefaults {
+class UKitButtonBuilder extends UKitBuilder {
   /// Sets the button's border color
   Color? borderColor;
 
@@ -34,7 +35,7 @@ class UKitButtonDefaults extends UKitDefaults {
   /// Sets icon place
   IconPlace? iconPlace;
 
-  UKitButtonDefaults({
+  UKitButtonBuilder({
     this.borderColor,
     this.borderRadius,
     this.borderWidth,

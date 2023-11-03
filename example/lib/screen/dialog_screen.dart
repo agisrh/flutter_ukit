@@ -14,8 +14,8 @@ class DialogScreen extends StatelessWidget {
       ),
       body: Container(
         margin: const EdgeInsets.all(10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: ListView(
+          //crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             BoxWidget(
               title: 'DIALOG',
@@ -148,6 +148,55 @@ class DialogScreen extends StatelessWidget {
                           child: const UKitHeading(
                             heading: 3,
                             text: 'Some cool content',
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 30.0),
+            BoxWidget(
+              title: 'BOTTOM SHEET FORM',
+              content: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  UKitButton.solid(
+                    as: solidButtonIconCenterLeft,
+                    label: "Open Bottom Sheet Form",
+                    bgColor: Colors.blue,
+                    onPressed: () async {
+                      await UKitBottomSheet.show(
+                        context: context,
+                        floatted: true,
+                        hideHead: false,
+                        content: Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 15.0),
+                          alignment: Alignment.center,
+                          height: 400,
+                          child: Column(
+                            children: [
+                              UKitTextField(
+                                as: primaryInput,
+                                hint: 'Default',
+                                onChanged: (value) => debugPrint(value),
+                              ),
+                              const SizedBox(height: 15.0),
+                              UKitTextField(
+                                as: primaryInput,
+                                maxLines: 5,
+                                hint: 'Default',
+                                onChanged: (value) => debugPrint(value),
+                              ),
+                              const SizedBox(height: 35.0),
+                              UKitButton.solid(
+                                as: solidButtonIconCenterLeft,
+                                label: "Save",
+                                bgColor: Colors.indigo,
+                                onPressed: () {},
+                              ),
+                            ],
                           ),
                         ),
                       );

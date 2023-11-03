@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ukit/flutter_ukit_utils.dart';
-import 'package:flutter_ukit/models/typography_defaults.dart';
+import 'package:flutter_ukit/models/typography_builder.dart';
 
 class UKitHeading extends StatelessWidget {
   const UKitHeading({
@@ -19,7 +19,7 @@ class UKitHeading extends StatelessWidget {
 
   @required
   final String text;
-  final UKitHeadingDefaults? as;
+  final UKitHeadingBuilder? as;
   final int? heading;
   final Color? color;
   final FontWeight? fontWeight;

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ukit/flutter_ukit.dart';
 
 /// Solid Button Styles
-final solidButtonStyles = UKitButtonDefaults(
+final solidButtonStyles = UKitButtonBuilder(
   elevation: 15.0,
   borderRadius: 50.0,
   labelColor: Colors.white,
@@ -10,7 +10,7 @@ final solidButtonStyles = UKitButtonDefaults(
 );
 
 /// Outlined Button Styles
-final outlinedButtonStyles = UKitButtonDefaults(
+final outlinedButtonStyles = UKitButtonBuilder(
   borderRadius: 50.0,
   labelColor: Colors.pink,
   bgColor: Colors.white,
@@ -19,7 +19,7 @@ final outlinedButtonStyles = UKitButtonDefaults(
 );
 
 /// Soft Button Styles
-final softButtonStyles = UKitButtonDefaults(
+final softButtonStyles = UKitButtonBuilder(
   elevation: 15.0,
   borderRadius: 50.0,
   labelColor: Colors.white,
@@ -27,7 +27,7 @@ final softButtonStyles = UKitButtonDefaults(
 );
 
 /// Disable Button Styles
-final disableButtonStyles = UKitButtonDefaults(
+final disableButtonStyles = UKitButtonBuilder(
   elevation: 15.0,
   borderRadius: 50.0,
   labelColor: Colors.white70,
@@ -35,7 +35,7 @@ final disableButtonStyles = UKitButtonDefaults(
 );
 
 /// Solid Button Icon Left
-final solidButtonIconLeft = UKitButtonDefaults(
+final solidButtonIconLeft = UKitButtonBuilder(
   borderRadius: 50.0,
   labelColor: Colors.white,
   bgColor: Colors.pink,
@@ -43,7 +43,7 @@ final solidButtonIconLeft = UKitButtonDefaults(
 );
 
 /// Solid Button Icon Right
-final solidButtonIconRight = UKitButtonDefaults(
+final solidButtonIconRight = UKitButtonBuilder(
   borderRadius: 50.0,
   labelColor: Colors.white,
   bgColor: Colors.pink,
@@ -51,7 +51,7 @@ final solidButtonIconRight = UKitButtonDefaults(
 );
 
 /// Solid Button Icon Center Right
-final solidButtonIconCenterRight = UKitButtonDefaults(
+final solidButtonIconCenterRight = UKitButtonBuilder(
   borderRadius: 50.0,
   labelColor: Colors.white,
   bgColor: Colors.pink,
@@ -59,7 +59,7 @@ final solidButtonIconCenterRight = UKitButtonDefaults(
 );
 
 /// Solid Button Icon Center Left
-final solidButtonIconCenterLeft = UKitButtonDefaults(
+final solidButtonIconCenterLeft = UKitButtonBuilder(
   borderRadius: 50.0,
   labelColor: Colors.white,
   bgColor: Colors.pink,
@@ -67,14 +67,14 @@ final solidButtonIconCenterLeft = UKitButtonDefaults(
 );
 
 /// Solid Button Icon
-final solidButtonIcon = UKitButtonDefaults(
+final solidButtonIcon = UKitButtonBuilder(
   borderRadius: 8.0,
   bgColor: Colors.pink,
   widthFactor: 0.15,
 );
 
 /// Outlined Button Icon
-final outlinedButtonIcon = UKitButtonDefaults(
+final outlinedButtonIcon = UKitButtonBuilder(
   borderRadius: 8.0,
   labelColor: Colors.pink,
   bgColor: Colors.white,
@@ -84,7 +84,7 @@ final outlinedButtonIcon = UKitButtonDefaults(
 );
 
 /// Success Container
-final successContainer = UKitContainerDefaults(
+final successContainer = UKitContainerBuilder(
   padding: const EdgeInsets.all(20),
   borderRadius: 10,
   widthFactor: 1.0,
@@ -94,7 +94,7 @@ final successContainer = UKitContainerDefaults(
 );
 
 /// Info Container
-final infoContainer = UKitContainerDefaults(
+final infoContainer = UKitContainerBuilder(
   padding: const EdgeInsets.all(20),
   borderRadius: 10,
   widthFactor: 1.0,
@@ -104,7 +104,7 @@ final infoContainer = UKitContainerDefaults(
 );
 
 /// Warning Container
-final warningContainer = UKitContainerDefaults(
+final warningContainer = UKitContainerBuilder(
   padding: const EdgeInsets.all(20),
   borderRadius: 10,
   widthFactor: 1.0,
@@ -114,7 +114,7 @@ final warningContainer = UKitContainerDefaults(
 );
 
 /// Error Container
-final errorContainer = UKitContainerDefaults(
+final errorContainer = UKitContainerBuilder(
   padding: const EdgeInsets.all(20),
   borderRadius: 10,
   widthFactor: 1.0, // make full width
@@ -123,7 +123,7 @@ final errorContainer = UKitContainerDefaults(
   color: Colors.red.shade100,
 );
 
-final shimmerAnimation = UKitShimmerDefaults(
+final shimmerAnimation = UKitShimmerBuilder(
   linearGradient: const LinearGradient(
     colors: [
       Color(0xFFEBEBF4),
@@ -144,7 +144,7 @@ final shimmerAnimation = UKitShimmerDefaults(
 ///
 /// Set Primary Input Styles
 ///
-final primaryInput = UKitTextFieldDefaults(
+final primaryInput = UKitTextFieldBuilder(
   borderColor: Colors.black45,
   borderRadius: 8,
   borderType: UKitBorderType.outlineBorder,
@@ -156,7 +156,7 @@ final primaryInput = UKitTextFieldDefaults(
 ///
 /// Set Underline Input Styles
 ///
-final underlineInput = UKitTextFieldDefaults(
+final underlineInput = UKitTextFieldBuilder(
   borderColor: Colors.black45,
   borderRadius: 8,
   borderType: UKitBorderType.underlineBorder,
@@ -168,7 +168,7 @@ final underlineInput = UKitTextFieldDefaults(
 ///
 /// Set Disable Input Styles
 ///
-final disableInput = UKitTextFieldDefaults(
+final disableInput = UKitTextFieldBuilder(
   borderColor: Colors.black45,
   borderRadius: 8,
   borderType: UKitBorderType.outlineBorder,
@@ -179,7 +179,7 @@ final disableInput = UKitTextFieldDefaults(
 );
 
 /// Set Small Title Styles
-final smallTitle = UKitHeadingDefaults(
+final smallTitle = UKitHeadingBuilder(
   color: Colors.black54,
   heading: 6,
 );

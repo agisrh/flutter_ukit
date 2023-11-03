@@ -10,13 +10,15 @@ class CheckboxScreen extends StatefulWidget {
 }
 
 class _CheckboxScreenState extends State<CheckboxScreen> {
-  List<String> allItemList = [
+  List<String> itemData1 = ['Red', 'Green', 'Blue'];
+
+  List<String> itemData2 = [
     'Red',
     'Green',
     'Blue',
     'Yellow',
     'Black',
-    'Violet',
+    'Violet'
   ];
 
   static List<String> checkedItemList = ['Green', 'Yellow'];
@@ -37,9 +39,9 @@ class _CheckboxScreenState extends State<CheckboxScreen> {
               content: Column(
                 children: [
                   UKitCheckbox(
-                    itemList: allItemList,
+                    itemList: itemData1,
                     checkedItemList: checkedItemList,
-                    disabled: const ['Black'],
+                    disabled: const ['Blue'],
                     onChanged: (itemList) {
                       setState(() {
                         selectedItemList = itemList;
@@ -57,8 +59,51 @@ class _CheckboxScreenState extends State<CheckboxScreen> {
               content: Column(
                 children: [
                   UKitCheckbox(
-                    itemList: allItemList,
+                    itemList: itemData2,
                     checkedItemList: checkedItemList,
+                    disabled: const ['Black'],
+                    onChanged: (itemList) {
+                      setState(() {
+                        selectedItemList = itemList;
+                        debugPrint('SELECTED ITEM LIST $itemList');
+                      });
+                    },
+                    orientation: CheckboxOrientation.HORIZONTAL,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+            BoxWidget(
+              title: 'SPACE BETWEEN',
+              content: Column(
+                children: [
+                  UKitCheckbox(
+                    wrapRunSpacing: 5.0,
+                    labelStart: true,
+                    wrapAlignment: WrapAlignment.start,
+                    itemList: itemData1,
+                    checkedItemList: checkedItemList,
+                    onChanged: (itemList) {
+                      setState(() {
+                        selectedItemList = itemList;
+                        debugPrint('SELECTED ITEM LIST $itemList');
+                      });
+                    },
+                    orientation: CheckboxOrientation.SPACE_BETWEEN,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+            BoxWidget(
+              title: 'LABEL START',
+              content: Column(
+                children: [
+                  UKitCheckbox(
+                    itemList: itemData2,
+                    checkedItemList: checkedItemList,
+                    labelStart: true,
                     disabled: const ['Black'],
                     onChanged: (itemList) {
                       setState(() {
@@ -83,7 +128,7 @@ class _CheckboxScreenState extends State<CheckboxScreen> {
                     wrapRunAlignment: WrapAlignment.center,
                     wrapVerticalDirection: VerticalDirection.down,
                     wrapAlignment: WrapAlignment.start,
-                    itemList: allItemList,
+                    itemList: itemData2,
                     checkedItemList: checkedItemList,
                     disabled: const ['Black'],
                     onChanged: (itemList) {

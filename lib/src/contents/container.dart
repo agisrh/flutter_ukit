@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ukit/flutter_ukit_utils.dart';
-import 'package:flutter_ukit/models/container_defaults.dart';
+import 'package:flutter_ukit/models/container_builder.dart';
 
 class UKitContainer extends StatelessWidget {
   const UKitContainer({
@@ -17,7 +17,7 @@ class UKitContainer extends StatelessWidget {
   });
 
   final Widget child;
-  final UKitContainerDefaults? as;
+  final UKitContainerBuilder? as;
   final Color? color;
   final EdgeInsetsGeometry? padding;
   final double? borderRadius;

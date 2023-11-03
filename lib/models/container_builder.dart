@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
-import 'ukit_defaults.dart';
 
-class UKitContainerDefaults extends UKitDefaults {
+import 'package:flutter/material.dart';
+import 'ukit_builder.dart';
+
+class UKitContainerBuilder extends UKitBuilder {
   ///
   /// Set the UIContainer background color
   final Color? color;
@@ -28,7 +29,7 @@ class UKitContainerDefaults extends UKitDefaults {
 
   final double? widthFactor;
 
-  UKitContainerDefaults({
+  UKitContainerBuilder({
     this.color,
     this.padding,
     this.borderRadius,

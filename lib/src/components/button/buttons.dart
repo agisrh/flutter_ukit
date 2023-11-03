@@ -2,13 +2,13 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ukit/flutter_ukit_utils.dart';
-import 'package:flutter_ukit/models/button_defaults.dart';
+import 'package:flutter_ukit/models/button_builder.dart';
 import 'button_content.dart';
 
 class UKitButton {
   /// Outlined Button
   static Widget outlined({
-    UKitButtonDefaults? as,
+    UKitButtonBuilder? as,
     String? label,
     Color? labelColor,
     TextStyle? labelStyle,
@@ -72,7 +72,7 @@ class UKitButton {
 
   /// Solid Button
   static Widget solid({
-    UKitButtonDefaults? as,
+    UKitButtonBuilder? as,
     String? label,
     Color? labelColor,
     TextStyle? labelStyle,
@@ -135,7 +135,7 @@ class UKitButton {
 
   /// Soft Button
   static Widget soft({
-    UKitButtonDefaults? as,
+    UKitButtonBuilder? as,
     String? label,
     TextStyle? labelStyle,
     required Function onPressed,

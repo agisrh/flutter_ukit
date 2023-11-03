@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ukit/flutter_ukit_utils.dart';
-import 'package:flutter_ukit/models/textfield_defaults.dart';
+import 'package:flutter_ukit/models/textfield_builder.dart';
 
 class UKitTextField extends StatefulWidget {
   const UKitTextField({
@@ -39,7 +39,7 @@ class UKitTextField extends StatefulWidget {
   @required
   final String? hint;
   final String? label;
-  final UKitTextFieldDefaults? as;
+  final UKitTextFieldBuilder? as;
   final Function(String value)? validator;
   final TextEditingController? controller;
   final double? borderRadius;

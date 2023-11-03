@@ -1,8 +1,8 @@
 import 'dart:ui';
-import 'ukit_defaults.dart';
+import 'ukit_builder.dart';
 import 'package:flutter_ukit/src/forms/texfield.dart';
 
-class UKitTextFieldDefaults extends UKitDefaults {
+class UKitTextFieldBuilder extends UKitBuilder {
   ///
   /// Set the input's border radius
   final double? borderRadius;
@@ -43,7 +43,7 @@ class UKitTextFieldDefaults extends UKitDefaults {
   /// Set the input's label color
   final Color? labelColor;
 
-  UKitTextFieldDefaults({
+  UKitTextFieldBuilder({
     this.borderRadius,
     this.borderType,
     this.borderColor,

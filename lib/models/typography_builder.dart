@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
-import 'ukit_defaults.dart';
 
-class UKitHeadingDefaults extends UKitDefaults {
-  UKitHeadingDefaults({
+import 'package:flutter/material.dart';
+import 'ukit_builder.dart';
+
+class UKitHeadingBuilder extends UKitBuilder {
+  UKitHeadingBuilder({
     this.color,
     this.fontFamily,
     this.fontWeight,

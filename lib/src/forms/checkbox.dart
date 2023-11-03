@@ -3,14 +3,14 @@ import 'package:flutter_ukit/flutter_ukit.dart';
 
 // ORIENTATION
 // ignore: constant_identifier_names
-enum CheckboxOrientation { HORIZONTAL, VERTICAL, WRAP }
+enum CheckboxOrientation { HORIZONTAL, VERTICAL, WRAP, SPACE_BETWEEN }
 
 class UKitCheckbox extends StatefulWidget {
   final List<String> itemList;
   final List<String>? checkedItemList;
   final List<String> disabled;
 
-  final UKitCheckboxDefaults? as;
+  final UKitCheckboxBuilder? as;
 
   /// Specifies the orientation of the elements in itemList.
   final CheckboxOrientation orientation;
@@ -20,6 +20,9 @@ class UKitCheckbox extends StatefulWidget {
 
   /// If true the checkbox's value can be true, false, or null.
   final bool tristate;
+
+  /// Label Position.
+  final bool labelStart;
 
   /// Configures the minimum size of the tap target.
   final MaterialTapTargetSize? materialTapTargetSize;
@@ -48,6 +51,7 @@ class UKitCheckbox extends StatefulWidget {
     this.disabled = const [],
     this.materialTapTargetSize,
     this.tristate = false,
+    this.labelStart = false,
     this.wrapDirection = Axis.horizontal,
     this.wrapAlignment = WrapAlignment.start,
     this.wrapSpacing = 0.0,
@@ -84,7 +88,9 @@ class _UKitCheckboxState extends State<UKitCheckbox> {
     }
     if (widget.orientation == CheckboxOrientation.VERTICAL) {
       for (final item in widgetList) {
-        content.add(Row(children: <Widget>[item]));
+        content.add(Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[item]));
       }
       finalWidget = SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -119,8 +125,21 @@ class _UKitCheckboxState extends State<UKitCheckbox> {
   // ITEM
   Widget item(int index) {
     return Row(
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: widget.orientation == CheckboxOrientation.SPACE_BETWEEN
+          ? MainAxisSize.max
+          : MainAxisSize.min,
+      mainAxisAlignment: widget.orientation == CheckboxOrientation.SPACE_BETWEEN
+          ? MainAxisAlignment.spaceBetween
+          : MainAxisAlignment.start,
       children: <Widget>[
+        // POSITION LABEL START
+        if (widget.labelStart)
+          Text(
+            widget.itemList[index].isEmpty ? '' : widget.itemList[index],
+            style: widget.disabled.contains(widget.itemList.elementAt(index))
+                ? TextStyle(color: Theme.of(context).disabledColor)
+                : widget.as?.textStyle,
+          ),
         Checkbox(
           activeColor: widget.as?.activeColor ?? Colors.blue,
           checkColor: widget.as?.checkColor ?? Colors.white,
@@ -142,12 +161,14 @@ class _UKitCheckboxState extends State<UKitCheckbox> {
             }
           },
         ),
-        Text(
-          widget.itemList[index].isEmpty ? '' : widget.itemList[index],
-          style: widget.disabled.contains(widget.itemList.elementAt(index))
-              ? TextStyle(color: Theme.of(context).disabledColor)
-              : widget.as?.textStyle,
-        )
+        // POSITION LABEL END
+        if (!widget.labelStart)
+          Text(
+            widget.itemList[index].isEmpty ? '' : widget.itemList[index],
+            style: widget.disabled.contains(widget.itemList.elementAt(index))
+                ? TextStyle(color: Theme.of(context).disabledColor)
+                : widget.as?.textStyle,
+          )
       ],
     );
   }

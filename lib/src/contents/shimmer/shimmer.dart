@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ukit/models/shimmer_defaults.dart';
+import 'package:flutter_ukit/models/shimmer_builder.dart';
 export 'shimmer_loading.dart';
 
 class UKitShimmer extends StatefulWidget {
@@ -9,7 +9,7 @@ class UKitShimmer extends StatefulWidget {
 
   const UKitShimmer({super.key, this.as, this.child});
 
-  final UKitShimmerDefaults? as;
+  final UKitShimmerBuilder? as;
   final Widget? child;
 
   @override
