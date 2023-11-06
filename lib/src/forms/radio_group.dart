@@ -50,6 +50,7 @@ class UKitRadioGroup<T> extends StatelessWidget {
                     UKitRadioTextPosition.right,
                 activeColor: activeColor,
                 fillColor: this.fillColor,
+                spaceBetween: radioButtonBuilder.spaceBetween ?? false,
               ),
             );
           }
@@ -65,6 +66,7 @@ class UKitRadioGroup<T> extends StatelessWidget {
                   UKitRadioTextPosition.right,
               activeColor: activeColor,
               fillColor: this.fillColor,
+              spaceBetween: radioButtonBuilder.spaceBetween ?? false,
             ),
           );
         },

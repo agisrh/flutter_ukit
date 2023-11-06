@@ -13,7 +13,7 @@ class _RadioButtonScreenState extends State<RadioButtonScreen> {
   String _singleValue = "Text alignment right";
   String _verticalGroupValue = "Pending";
 
-  final _status = ["Pending", "Released", "Blocked", "Archived"];
+  final _status = ["Pending", "Released", "Blocked"];
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +54,30 @@ class _RadioButtonScreenState extends State<RadioButtonScreen> {
             ),
             const SizedBox(height: 20.0),
             BoxWidget(
+              title: 'RADIO HORIZONTAL GROUP',
+              content: Column(
+                children: [
+                  UKitRadioGroup<String>.builder(
+                    direction: Axis.horizontal,
+                    groupValue: _verticalGroupValue,
+                    horizontalAlignment: MainAxisAlignment.spaceAround,
+                    onChanged: (value) {
+                      setState(() {
+                        _verticalGroupValue = value ?? '';
+                      });
+                    },
+                    items: _status,
+                    textStyle: const TextStyle(
+                      fontSize: 15,
+                      color: Colors.blue,
+                    ),
+                    itemBuilder: (item) => UKitRadioBuilder(item),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20.0),
+            BoxWidget(
               title: 'RADIO VERTICAL GROUP',
               content: Column(
                 children: [
@@ -73,24 +97,25 @@ class _RadioButtonScreenState extends State<RadioButtonScreen> {
             ),
             const SizedBox(height: 20.0),
             BoxWidget(
-              title: 'RADIO HORIZONTAL GROUP',
+              title: 'RADIO SPACE BETWEEN',
               content: Column(
                 children: [
                   UKitRadioGroup<String>.builder(
-                    direction: Axis.horizontal,
                     groupValue: _verticalGroupValue,
-                    horizontalAlignment: MainAxisAlignment.spaceAround,
                     onChanged: (value) {
                       setState(() {
                         _verticalGroupValue = value ?? '';
                       });
                     },
                     items: _status,
-                    textStyle: const TextStyle(
-                      fontSize: 15,
-                      color: Colors.blue,
-                    ),
-                    itemBuilder: (item) => UKitRadioBuilder(item),
+                    itemBuilder: (item) {
+                      return UKitRadioBuilder(
+                        item,
+                        textPosition: UKitRadioTextPosition.left,
+                        spaceBetween: true,
+                      );
+                    },
+                    fillColor: Colors.cyan,
                   ),
                 ],
               ),

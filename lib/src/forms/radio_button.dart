@@ -11,6 +11,7 @@ class UKitRadioButton<T> extends StatelessWidget {
   final Color? activeColor;
   final Color? fillColor;
   final TextStyle? textStyle;
+  final bool spaceBetween;
 
   const UKitRadioButton({
     super.key,
@@ -22,6 +23,7 @@ class UKitRadioButton<T> extends StatelessWidget {
     this.activeColor,
     this.fillColor,
     this.textStyle,
+    this.spaceBetween = false,
   });
 
   @override
@@ -33,16 +35,20 @@ class UKitRadioButton<T> extends StatelessWidget {
         }
       },
       child: Row(
-        mainAxisAlignment: this.textPosition == UKitRadioTextPosition.right
+        mainAxisAlignment: (this.textPosition == UKitRadioTextPosition.right &&
+                this.spaceBetween == false)
             ? MainAxisAlignment.start
-            : MainAxisAlignment.end,
+            : (this.textPosition == UKitRadioTextPosition.left &&
+                    this.spaceBetween == false)
+                ? MainAxisAlignment.end
+                : MainAxisAlignment.spaceBetween,
         children: <Widget>[
           this.textPosition == UKitRadioTextPosition.left
               ? Expanded(
                   child: Text(
                     this.description,
                     style: this.textStyle,
-                    textAlign: TextAlign.right,
+                    textAlign: spaceBetween ? null : TextAlign.right,
                   ),
                 )
               : const SizedBox.shrink(),
@@ -59,7 +65,7 @@ class UKitRadioButton<T> extends StatelessWidget {
                   child: Text(
                     this.description,
                     style: this.textStyle,
-                    textAlign: TextAlign.left,
+                    textAlign: spaceBetween ? TextAlign.right : TextAlign.left,
                   ),
                 )
               : const SizedBox.shrink(),

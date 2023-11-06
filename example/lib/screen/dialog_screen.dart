@@ -15,10 +15,9 @@ class DialogScreen extends StatelessWidget {
       body: Container(
         margin: const EdgeInsets.all(10.0),
         child: ListView(
-          //crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             BoxWidget(
-              title: 'DIALOG',
+              title: 'DIALOG ANDROID',
               content: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

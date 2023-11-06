@@ -23,8 +23,9 @@ samples, guidance on mobile development, and a full API reference.
 | Buttons                |   ✔️   |
 | Dialog                 |   ✔️   |
 | Form Control           |   ✔️   |
-| Checkbox               |   🚧  |
-| Radio Option           |   🚧  |
+| Checkbox               |   ✔️   |
+| Radio Option           |   ✔️   |
+| Picker                 |   🚧  |
 
 ## More examples
 See the `example` folder for more code samples of the various possibilities.
