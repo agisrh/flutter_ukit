@@ -26,7 +26,7 @@ samples, guidance on mobile development, and a full API reference.
 | Checkbox               |   ✔️   |
 | Radio Option           |   ✔️   |
 | Picker                 |   ✔️   |
-| Dropdown Optiom        |   ✔️   |
+| Dropdown Option        |   ✔️   |
 | Animation              |   🚧  |
 
 ## More examples
