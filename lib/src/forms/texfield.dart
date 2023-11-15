@@ -249,11 +249,6 @@ class _UKitTextFieldState extends State<UKitTextField> {
   }
 }
 
-enum UKitBorderType {
-  outlineBorder,
-  underlineBorder,
-}
-
 ///
 /// Android Text Field
 ///

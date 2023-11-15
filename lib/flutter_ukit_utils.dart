@@ -80,3 +80,6 @@ class UKitUtils {
     return overrideWith ?? defaultTo;
   }
 }
+
+// Border Type
+enum UKitBorderType { outlineBorder, underlineBorder }

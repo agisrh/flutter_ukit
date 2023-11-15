@@ -1,6 +1,6 @@
 import 'dart:ui';
+import '../flutter_ukit_utils.dart';
 import 'ukit_builder.dart';
-import 'package:flutter_ukit/src/forms/texfield.dart';
 
 class UKitTextFieldBuilder extends UKitBuilder {
   ///

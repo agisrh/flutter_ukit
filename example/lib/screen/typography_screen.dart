@@ -13,7 +13,7 @@ class TypographyScreen extends StatelessWidget {
       ),
       body: Container(
         margin: const EdgeInsets.all(10.0),
-        child: Column(
+        child: const Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             BoxWidget(
@@ -22,7 +22,7 @@ class TypographyScreen extends StatelessWidget {
                     'You can use style fontWeight, color, textAlign, overflow, fontFamily, style and maxLines',
                 content: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     UKitHeading(
                       text: 'Heading 1',
                       heading: 1,

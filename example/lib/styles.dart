@@ -178,6 +178,17 @@ final disableInput = UKitTextFieldBuilder(
   bgColor: Colors.grey.shade300,
 );
 
+///
+/// Set Primary Input Styles
+///
+final dropdownInput = UKitDropdownBuilder(
+  borderRadius: 8,
+  borderType: UKitBorderType.outlineBorder,
+  borderWidth: 1.0,
+  bgColor: Colors.white,
+  elevation: 2.0,
+);
+
 /// Set Small Title Styles
 final smallTitle = UKitHeadingBuilder(
   color: Colors.black54,

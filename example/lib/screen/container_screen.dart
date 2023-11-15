@@ -23,9 +23,9 @@ class ContainerScreen extends StatelessWidget {
                 children: [
                   UKitContainer(
                     as: infoContainer,
-                    child: Column(
+                    child: const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         UKitHeading(
                           text: 'Info Container',
                           heading: 6,
@@ -41,9 +41,9 @@ class ContainerScreen extends StatelessWidget {
                   const SizedBox(height: 15.0),
                   UKitContainer(
                     as: successContainer,
-                    child: Column(
+                    child: const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         UKitHeading(
                           text: 'Success Container',
                           heading: 6,
@@ -59,9 +59,9 @@ class ContainerScreen extends StatelessWidget {
                   const SizedBox(height: 15.0),
                   UKitContainer(
                     as: warningContainer,
-                    child: Column(
+                    child: const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         UKitHeading(
                           text: 'Warning Container',
                           heading: 6,
@@ -77,9 +77,9 @@ class ContainerScreen extends StatelessWidget {
                   const SizedBox(height: 15.0),
                   UKitContainer(
                     as: errorContainer,
-                    child: Column(
+                    child: const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         UKitHeading(
                           text: 'Error Container',
                           heading: 6,

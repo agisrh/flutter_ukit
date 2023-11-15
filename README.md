@@ -25,7 +25,9 @@ samples, guidance on mobile development, and a full API reference.
 | Form Control           |   ✔️   |
 | Checkbox               |   ✔️   |
 | Radio Option           |   ✔️   |
-| Picker                 |   🚧  |
+| Picker                 |   ✔️   |
+| Dropdown Optiom        |   ✔️   |
+| Loading Animation      |   🚧  |
 
 ## More examples
 See the `example` folder for more code samples of the various possibilities.

@@ -28,6 +28,7 @@ class DialogScreen extends StatelessWidget {
                     onPressed: () {
                       UKitDialog.show(
                         context,
+                        forceAndroid: true,
                         title: const Text('Are you sure?'),
                         content: const Text('You cannot reverse this action.'),
                         actions: [
@@ -58,6 +59,66 @@ class DialogScreen extends StatelessWidget {
                     onPressed: () {
                       UKitDialog.show(
                         context,
+                        forceAndroid: true,
+                        title: const Text('Are you sure?'),
+                        content: const Text('You cannot reverse this action.'),
+                        actions: [
+                          UKitAction(
+                            child: const Text('OK'),
+                            onPressed: () => Navigator.of(context).pop(),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 30.0),
+            BoxWidget(
+              title: 'DIALOG IOS',
+              content: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  UKitButton.solid(
+                    as: solidButtonIconCenterLeft,
+                    label: "Open Dialog Option",
+                    bgColor: Colors.cyan,
+                    onPressed: () {
+                      UKitDialog.show(
+                        context,
+                        forceIos: true,
+                        title: const Text('Are you sure?'),
+                        content: const Text('You cannot reverse this action.'),
+                        actions: [
+                          UKitAction(
+                            child: const Text('YES'),
+                            onPressed: () {
+                              ///
+                              /// Do Something here
+
+                              ///
+                              /// Close dialog
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                          UKitAction(
+                            child: const Text('NO'),
+                            onPressed: () => Navigator.of(context).pop(),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 20.0),
+                  UKitButton.solid(
+                    as: solidButtonIconCenterLeft,
+                    label: "Open Dialog Confirm",
+                    bgColor: Colors.lightGreen,
+                    onPressed: () {
+                      UKitDialog.show(
+                        context,
+                        forceIos: true,
                         title: const Text('Are you sure?'),
                         content: const Text('You cannot reverse this action.'),
                         actions: [
@@ -80,11 +141,59 @@ class DialogScreen extends StatelessWidget {
                 children: [
                   UKitButton.solid(
                     as: solidButtonIconCenterLeft,
-                    label: "Open Action Sheet",
+                    label: "Action Sheet Android",
+                    bgColor: Colors.red,
+                    onPressed: () {
+                      UKitActionSheet.show(
+                        context,
+                        forceAndroid: true,
+                        title: const UKitHeading(
+                          text: 'Select you favorite color',
+                          color: Colors.blue,
+                          textAlign: TextAlign.center,
+                          heading: 5,
+                        ),
+                        content: const Text(
+                            'We will use the color on your profile.'),
+                        // forceAndroid: true,
+                        actions: [
+                          UKitAction(
+                            child: const Text('Red'),
+                            onPressed: () => Navigator.of(context).pop(),
+                          ),
+                          UKitAction(
+                            child: const Text('Green'),
+                            onPressed: () => Navigator.of(context).pop(),
+                          ),
+                          UKitAction(
+                            child: const Text('Bue'),
+                            onPressed: () => Navigator.of(context).pop(),
+                          ),
+                          UKitAction(
+                            child: const Text('Pink'),
+                            onPressed: () => Navigator.of(context).pop(),
+                          ),
+                        ],
+                        cancel: UKitAction(
+                          child: const UKitHeading(
+                            text: 'Cancel',
+                            color: Colors.red,
+                            heading: 4,
+                          ),
+                          onPressed: () => debugPrint('Cancel'),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 20.0),
+                  UKitButton.solid(
+                    as: solidButtonIconCenterLeft,
+                    label: "Action Sheet iOS",
                     bgColor: Colors.teal,
                     onPressed: () {
                       UKitActionSheet.show(
                         context,
+                        forceIos: true,
                         title: const UKitHeading(
                           text: 'Select you favorite color',
                           color: Colors.blue,
