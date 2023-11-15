@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screen/animation_screen.dart';
 import 'screen/dropdown_screen.dart';
 import 'screen/picker_screen.dart';
 import 'screen/checkbox_screen.dart';
@@ -33,7 +34,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter UI Kit'),
+        title: const Text('Flutter UKit'),
       ),
       drawer: Drawer(
         child: ListView(
@@ -41,7 +42,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             const UserAccountsDrawerHeader(
               accountName: Text(
-                'Flutter UI Kit',
+                'Flutter UKit',
               ),
               accountEmail: Text(
                 'version 1.0.0',
@@ -84,6 +85,17 @@ class HomeScreen extends StatelessWidget {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => const ShimmerScreen(),
+                      ),
+                    );
+                  },
+                ),
+                ListTile(
+                  title: const Text('Animation'),
+                  trailing: const Icon(Icons.arrow_forward_ios, size: 18),
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const AnimationScreen(),
                       ),
                     );
                   },

@@ -4,6 +4,7 @@ export 'flutter_context.dart';
 // Models
 export 'models/ukit_action.dart';
 export 'models/ukit_builder.dart';
+export 'models/loader_builder.dart';
 export 'models/button_builder.dart';
 export 'models/shimmer_builder.dart';
 export 'models/checkbox_builder.dart';
@@ -17,6 +18,7 @@ export 'models/time_picker_builder.dart';
 // Components
 export 'src/forms/texfield.dart';
 export 'src/forms/checkbox.dart';
+export 'src/contents/loader.dart';
 export 'src/contents/container.dart';
 export 'src/contents/typography.dart';
 export 'src/forms/dropdown/dropdown.dart';
