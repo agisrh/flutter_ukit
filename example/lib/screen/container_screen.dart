@@ -77,6 +77,7 @@ class ContainerScreen extends StatelessWidget {
                   const SizedBox(height: 15.0),
                   UKitContainer(
                     as: errorContainer,
+                    icon: const Icon(Icons.info),
                     child: const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

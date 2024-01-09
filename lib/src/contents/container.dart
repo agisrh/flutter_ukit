@@ -6,6 +6,7 @@ class UKitContainer extends StatelessWidget {
   const UKitContainer({
     super.key,
     required this.child,
+    this.icon,
     this.as,
     this.color,
     this.padding,
@@ -17,6 +18,7 @@ class UKitContainer extends StatelessWidget {
   });
 
   final Widget child;
+  final Widget? icon;
   final UKitContainerBuilder? as;
   final Color? color;
   final EdgeInsetsGeometry? padding;
@@ -59,7 +61,17 @@ class UKitContainer extends StatelessWidget {
           child: Padding(
             padding: UKitUtils.getStyle(
                 as, as?.padding, padding, const EdgeInsets.all(0.0)),
-            child: child,
+            child: Row(
+              crossAxisAlignment: as?.alignment ?? CrossAxisAlignment.center,
+              children: [
+                if (icon != null)
+                  Container(
+                    margin: const EdgeInsets.only(right: 8.0),
+                    child: icon,
+                  ),
+                Expanded(child: child),
+              ],
+            ),
           ),
         ),
       ),

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'ukit_builder.dart';
 
@@ -29,6 +28,8 @@ class UKitContainerBuilder extends UKitBuilder {
 
   final double? widthFactor;
 
+  final CrossAxisAlignment? alignment;
+
   UKitContainerBuilder({
     this.color,
     this.padding,
@@ -37,5 +38,6 @@ class UKitContainerBuilder extends UKitBuilder {
     this.borderWidth,
     this.borderColor,
     this.widthFactor,
+    this.alignment,
   });
 }

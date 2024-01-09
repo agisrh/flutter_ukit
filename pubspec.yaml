@@ -1,7 +1,7 @@
 name: flutter_ukit
 description: A new Flutter plugin project.
 version: 0.0.1
-homepage:
+#homepage:
 
 environment:
   sdk: '>=2.19.6 <3.0.0'

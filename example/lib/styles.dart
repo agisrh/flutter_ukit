@@ -85,7 +85,7 @@ final outlinedButtonIcon = UKitButtonBuilder(
 
 /// Success Container
 final successContainer = UKitContainerBuilder(
-  padding: const EdgeInsets.all(20),
+  padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
   borderRadius: 10,
   widthFactor: 1.0,
   borderColor: Colors.green,
@@ -95,7 +95,7 @@ final successContainer = UKitContainerBuilder(
 
 /// Info Container
 final infoContainer = UKitContainerBuilder(
-  padding: const EdgeInsets.all(20),
+  padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
   borderRadius: 10,
   widthFactor: 1.0,
   borderColor: Colors.blue,
@@ -105,7 +105,7 @@ final infoContainer = UKitContainerBuilder(
 
 /// Warning Container
 final warningContainer = UKitContainerBuilder(
-  padding: const EdgeInsets.all(20),
+  padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
   borderRadius: 10,
   widthFactor: 1.0,
   borderColor: Colors.orange,
@@ -115,7 +115,8 @@ final warningContainer = UKitContainerBuilder(
 
 /// Error Container
 final errorContainer = UKitContainerBuilder(
-  padding: const EdgeInsets.all(20),
+  padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+  alignment: CrossAxisAlignment.start,
   borderRadius: 10,
   widthFactor: 1.0, // make full width
   borderColor: Colors.red,

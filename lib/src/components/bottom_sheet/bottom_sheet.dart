@@ -9,6 +9,7 @@ class UKitBottomSheet {
     bool floatted = false,
     double borderRadus = 20.0,
     bool hideHead = false,
+    bool scroll = true,
   }) async {
     await showModalBottomSheet(
       context: context,
@@ -72,9 +73,9 @@ class UKitBottomSheet {
                     constraints: BoxConstraints(
                       maxHeight: MediaQuery.of(context).size.height * 0.8,
                     ),
-                    child: SingleChildScrollView(
-                      child: content,
-                    ),
+                    child: scroll
+                        ? SingleChildScrollView(child: content)
+                        : content,
                   ),
                 ],
               ),
