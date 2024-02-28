@@ -99,7 +99,7 @@ class _AnimationScreenState extends State<AnimationScreen> {
               ),
             ),
             BoxWidget(
-              title: 'TEXTFIELD',
+              title: 'SUGGEST',
               content: Column(
                 children: [
                   UKitTextField(

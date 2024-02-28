@@ -1,10 +1,11 @@
 name: flutter_ukit
 description: A new Flutter plugin project.
 version: 0.0.1
-#homepage:
+homepage: https://agisrh.github.io
+repository: https://github.com/agisrh/flutter_ukit
 
 environment:
-  sdk: '>=2.19.6 <3.0.0'
+  sdk: '>=2.19.6 <4.0.0'
   flutter: ">=2.5.0"
 
 dependencies:
