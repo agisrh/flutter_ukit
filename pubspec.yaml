@@ -1,8 +1,12 @@
 name: flutter_ukit
-description: A new Flutter plugin project.
-version: 0.0.1
+description: Flutter UKit is a large compilation of reusable and easy-to-use UI components, templates and styles.
+version: 0.0.2
 homepage: https://agisrh.github.io
 repository: https://github.com/agisrh/flutter_ukit
+
+platforms:
+  android:
+  ios:
 
 environment:
   sdk: '>=2.19.6 <4.0.0'
