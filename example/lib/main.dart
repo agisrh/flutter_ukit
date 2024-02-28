@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                 'Flutter UKit',
               ),
               accountEmail: Text(
-                'version 1.0.0',
+                'version 0.0.1',
               ),
               currentAccountPicture: CircleAvatar(
                 child: FlutterLogo(size: 42.0),
