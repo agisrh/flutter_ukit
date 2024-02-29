@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                 'Flutter UKit',
               ),
               accountEmail: Text(
-                'version 0.0.1',
+                'version 0.0.2',
               ),
               currentAccountPicture: CircleAvatar(
                 child: FlutterLogo(size: 42.0),
@@ -199,8 +199,54 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: const Center(
-        child: Text('Welcome'),
+      body: Center(
+        child: Column(
+          children: [
+            const Padding(
+              padding: EdgeInsets.all(30.0),
+              child: Text(
+                'Flutter UKit is a large compilation of reusable and easy-to-use UI components, templates, styles, resources and other useful digital assets that can be used to create user interface designs.',
+                style: TextStyle(fontSize: 16.0),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              child: Table(
+                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                border: TableBorder.all(
+                  color: Colors.black,
+                  style: BorderStyle.solid,
+                  width: 1,
+                ),
+                children: const [
+                  TableRow(
+                    decoration: BoxDecoration(color: Colors.blue),
+                    children: [
+                      Text(
+                        'FEATURE',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        'STATUS',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                  // TableRow(children: [
+                  //   Column(children: [Text('Javatpoint')]),
+                  //   Column(children: [Text('Flutter')]),
+                  //   Column(children: [Text('5*')]),
+                  // ]),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

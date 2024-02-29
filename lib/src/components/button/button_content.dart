@@ -18,7 +18,7 @@ Widget UKitButtonContent(
     );
   } else {
     switch (as?.iconPlace) {
-      case IconPlace.LEFT:
+      case IconPlace.left:
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -31,7 +31,7 @@ Widget UKitButtonContent(
           ],
         );
 
-      case IconPlace.CENTER_LEFT:
+      case IconPlace.centerLeft:
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -41,7 +41,7 @@ Widget UKitButtonContent(
           ],
         );
 
-      case IconPlace.RIGHT:
+      case IconPlace.right:
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -54,7 +54,7 @@ Widget UKitButtonContent(
           ],
         );
 
-      case IconPlace.CENTER_RIGHT:
+      case IconPlace.centerRight:
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

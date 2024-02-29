@@ -1,5 +1,3 @@
-// ignore_for_file: constant_identifier_names
-
 import 'package:flutter/material.dart';
 import 'ukit_builder.dart';
 
@@ -48,4 +46,4 @@ class UKitButtonBuilder extends UKitBuilder {
   });
 }
 
-enum IconPlace { LEFT, RIGHT, CENTER_LEFT, CENTER_RIGHT }
+enum IconPlace { left, right, centerLeft, centerRight }

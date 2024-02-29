@@ -39,7 +39,7 @@ final solidButtonIconLeft = UKitButtonBuilder(
   borderRadius: 50.0,
   labelColor: Colors.white,
   bgColor: Colors.pink,
-  iconPlace: IconPlace.LEFT,
+  iconPlace: IconPlace.left,
 );
 
 /// Solid Button Icon Right
@@ -47,7 +47,7 @@ final solidButtonIconRight = UKitButtonBuilder(
   borderRadius: 50.0,
   labelColor: Colors.white,
   bgColor: Colors.pink,
-  iconPlace: IconPlace.RIGHT,
+  iconPlace: IconPlace.right,
 );
 
 /// Solid Button Icon Center Right
@@ -55,7 +55,7 @@ final solidButtonIconCenterRight = UKitButtonBuilder(
   borderRadius: 50.0,
   labelColor: Colors.white,
   bgColor: Colors.pink,
-  iconPlace: IconPlace.CENTER_RIGHT,
+  iconPlace: IconPlace.centerRight,
 );
 
 /// Solid Button Icon Center Left
@@ -63,7 +63,7 @@ final solidButtonIconCenterLeft = UKitButtonBuilder(
   borderRadius: 50.0,
   labelColor: Colors.white,
   bgColor: Colors.pink,
-  iconPlace: IconPlace.CENTER_LEFT,
+  iconPlace: IconPlace.centerLeft,
 );
 
 /// Solid Button Icon
