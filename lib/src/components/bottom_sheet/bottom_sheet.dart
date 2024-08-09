@@ -22,7 +22,12 @@ class UKitBottomSheet {
         return Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(borderRadus),
+            borderRadius: floatted
+                ? BorderRadius.circular(borderRadus)
+                : BorderRadius.only(
+                    topLeft: Radius.circular(borderRadus),
+                    topRight: Radius.circular(borderRadus),
+                  ),
             color: floatted ? Colors.transparent : Colors.white,
           ),
           margin: EdgeInsets.fromLTRB(
@@ -73,9 +78,7 @@ class UKitBottomSheet {
                     constraints: BoxConstraints(
                       maxHeight: MediaQuery.of(context).size.height * 0.8,
                     ),
-                    child: scroll
-                        ? SingleChildScrollView(child: content)
-                        : content,
+                    child: scroll ? SingleChildScrollView(child: content) : content,
                   ),
                 ],
               ),

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ukit/flutter_ukit_utils.dart';
 import 'package:flutter_ukit/models/button_builder.dart';
-import 'package:flutter_ukit/src/contents/typography.dart';
+import 'package:flutter_ukit/src/contents/heading.dart';
 
 /// Button Content
 Widget UKitButtonContent(

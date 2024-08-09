@@ -7,6 +7,7 @@ enum CheckboxOrientation { HORIZONTAL, VERTICAL, WRAP, SPACE_BETWEEN }
 
 class UKitCheckbox extends StatefulWidget {
   final List<String> itemList;
+  final List<String>? displayList;
   final List<String>? checkedItemList;
   final List<String> disabled;
 
@@ -44,6 +45,7 @@ class UKitCheckbox extends StatefulWidget {
   const UKitCheckbox({
     super.key,
     required this.itemList,
+    this.displayList,
     required this.orientation,
     required this.onChanged,
     this.checkedItemList,
@@ -88,9 +90,12 @@ class _UKitCheckboxState extends State<UKitCheckbox> {
     }
     if (widget.orientation == CheckboxOrientation.VERTICAL) {
       for (final item in widgetList) {
-        content.add(Row(
+        content.add(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[item]));
+            children: <Widget>[item],
+          ),
+        );
       }
       finalWidget = SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -125,9 +130,7 @@ class _UKitCheckboxState extends State<UKitCheckbox> {
   // ITEM
   Widget item(int index) {
     return Row(
-      mainAxisSize: widget.orientation == CheckboxOrientation.SPACE_BETWEEN
-          ? MainAxisSize.max
-          : MainAxisSize.min,
+      mainAxisSize: widget.orientation == CheckboxOrientation.SPACE_BETWEEN ? MainAxisSize.max : MainAxisSize.min,
       mainAxisAlignment: widget.orientation == CheckboxOrientation.SPACE_BETWEEN
           ? MainAxisAlignment.spaceBetween
           : MainAxisAlignment.start,
@@ -135,7 +138,13 @@ class _UKitCheckboxState extends State<UKitCheckbox> {
         // POSITION LABEL START
         if (widget.labelStart)
           Text(
-            widget.itemList[index].isEmpty ? '' : widget.itemList[index],
+            widget.displayList != null
+                ? widget.displayList![index].isEmpty
+                    ? ''
+                    : widget.displayList![index]
+                : widget.itemList[index].isEmpty
+                    ? ''
+                    : widget.itemList[index],
             style: widget.disabled.contains(widget.itemList.elementAt(index))
                 ? TextStyle(color: Theme.of(context).disabledColor)
                 : widget.as?.textStyle,
@@ -164,7 +173,13 @@ class _UKitCheckboxState extends State<UKitCheckbox> {
         // POSITION LABEL END
         if (!widget.labelStart)
           Text(
-            widget.itemList[index].isEmpty ? '' : widget.itemList[index],
+            widget.displayList != null
+                ? widget.displayList![index].isEmpty
+                    ? ''
+                    : widget.displayList![index]
+                : widget.itemList[index].isEmpty
+                    ? ''
+                    : widget.itemList[index],
             style: widget.disabled.contains(widget.itemList.elementAt(index))
                 ? TextStyle(color: Theme.of(context).disabledColor)
                 : widget.as?.textStyle,

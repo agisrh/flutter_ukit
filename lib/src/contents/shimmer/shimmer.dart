@@ -16,8 +16,7 @@ class UKitShimmer extends StatefulWidget {
   UKitShimmerState createState() => UKitShimmerState();
 }
 
-class UKitShimmerState extends State<UKitShimmer>
-    with SingleTickerProviderStateMixin {
+class UKitShimmerState extends State<UKitShimmer> with SingleTickerProviderStateMixin {
   late AnimationController _shimmerController;
 
   @override

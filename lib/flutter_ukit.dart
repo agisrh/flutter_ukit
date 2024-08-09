@@ -20,6 +20,7 @@ export 'src/forms/texfield.dart';
 export 'src/forms/checkbox.dart';
 export 'src/contents/loader.dart';
 export 'src/contents/container.dart';
+export 'src/contents/heading.dart';
 export 'src/contents/typography.dart';
 export 'src/forms/dropdown/dropdown.dart';
 export 'src/contents/shimmer/shimmer.dart';

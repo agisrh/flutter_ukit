@@ -33,7 +33,7 @@ class UKitTextFieldBuilder extends UKitBuilder {
 
   ///
   /// Set the input's inner padding
-  final double? padding;
+  final double? contentPadding;
 
   ///
   /// Set the input's background color
@@ -43,6 +43,10 @@ class UKitTextFieldBuilder extends UKitBuilder {
   /// Set the input's label color
   final Color? labelColor;
 
+  ///
+  /// Set the input's text color
+  final Color? textColor;
+
   UKitTextFieldBuilder({
     this.borderRadius,
     this.borderType,
@@ -51,8 +55,9 @@ class UKitTextFieldBuilder extends UKitBuilder {
     this.errorBorderColor,
     this.borderWidth,
     this.hintColor,
-    this.padding,
+    this.contentPadding,
     this.bgColor,
     this.labelColor,
+    this.textColor,
   });
 }

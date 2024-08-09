@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_ukit/flutter_ukit_utils.dart';
 import 'package:flutter_ukit/models/textfield_builder.dart';
 
@@ -10,6 +11,7 @@ class UKitTextField extends StatefulWidget {
     this.as,
     this.hint,
     this.label,
+    this.initialValue,
     this.validator,
     this.borderRadius,
     this.borderType,
@@ -19,7 +21,6 @@ class UKitTextField extends StatefulWidget {
     this.borderWidth,
     this.hintColor,
     this.labelColor,
-    this.padding,
     this.obscureText,
     this.keyboardType,
     required this.onChanged,
@@ -34,13 +35,18 @@ class UKitTextField extends StatefulWidget {
     this.readOnly,
     this.textCapitalization,
     this.showObscureSwitch,
+    this.focusNode,
+    this.suffixIconConstraints,
+    this.textAlign = TextAlign.start,
+    this.inputFormatters,
   });
 
   @required
   final String? hint;
   final String? label;
+  final String? initialValue;
   final UKitTextFieldBuilder? as;
-  final Function(String value)? validator;
+  final FormFieldValidator<String>? validator;
   final TextEditingController? controller;
   final double? borderRadius;
   final UKitBorderType? borderType;
@@ -50,7 +56,6 @@ class UKitTextField extends StatefulWidget {
   final double? borderWidth;
   final Color? hintColor;
   final Color? labelColor;
-  final double? padding;
   final bool? obscureText;
   final TextInputType? keyboardType;
   final Function onChanged;
@@ -64,6 +69,10 @@ class UKitTextField extends StatefulWidget {
   final bool? readOnly;
   final TextCapitalization? textCapitalization;
   final bool? showObscureSwitch;
+  final FocusNode? focusNode;
+  final BoxConstraints? suffixIconConstraints;
+  final TextAlign textAlign;
+  final List<TextInputFormatter>? inputFormatters;
 
   @override
   State<UKitTextField> createState() => _UKitTextFieldState();
@@ -74,6 +83,7 @@ class UKitTextField extends StatefulWidget {
   static Widget native({
     String? hint,
     String? label,
+    String? initialValue,
     Color? hintColor,
     double? padding,
     Color? bgColor,
@@ -90,6 +100,10 @@ class UKitTextField extends StatefulWidget {
     int? maxLines,
     bool? readOnly,
     TextCapitalization? textCapitalization,
+    FocusNode? focusNode,
+    BoxConstraints? suffixIconConstraints,
+    TextAlign? textAlign,
+    List<TextInputFormatter>? inputFormatters,
   }) {
     if (Platform.isIOS) {
       return iosTextField(
@@ -111,11 +125,13 @@ class UKitTextField extends StatefulWidget {
         maxLines,
         readOnly,
         textCapitalization,
+        focusNode,
       );
     } else {
       return androidTextField(
         hint,
         label,
+        initialValue,
         hintColor,
         padding,
         bgColor,
@@ -132,6 +148,9 @@ class UKitTextField extends StatefulWidget {
         maxLines,
         readOnly,
         textCapitalization,
+        focusNode,
+        textAlign,
+        inputFormatters,
       );
     }
   }
@@ -141,16 +160,15 @@ class _UKitTextFieldState extends State<UKitTextField> {
   bool obscureText = false;
   @override
   void initState() {
-    obscureText = !(widget.obscureText ?? false)
-        ? (widget.showObscureSwitch ?? false)
-        : (widget.obscureText ?? false);
+    obscureText = !(widget.obscureText ?? false) ? (widget.showObscureSwitch ?? false) : (widget.obscureText ?? false);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      validator: widget.validator as String? Function(String?)?,
+      initialValue: widget.initialValue,
+      validator: widget.validator,
       textCapitalization: widget.textCapitalization ?? TextCapitalization.none,
       decoration: decoration,
       obscureText: obscureText,
@@ -161,6 +179,10 @@ class _UKitTextFieldState extends State<UKitTextField> {
       maxLength: widget.maxLength,
       maxLines: widget.maxLines ?? 1,
       readOnly: widget.readOnly ?? false,
+      focusNode: widget.focusNode,
+      textAlign: widget.textAlign,
+      inputFormatters: widget.inputFormatters,
+      style: TextStyle(color: widget.as?.textColor ?? Colors.black),
     );
   }
 
@@ -170,32 +192,31 @@ class _UKitTextFieldState extends State<UKitTextField> {
   InputDecoration get decoration {
     return InputDecoration(
       enabledBorder: inputBorder(
-        borderColor: UKitUtils.getColor(
-            widget.as, widget.as?.borderColor, widget.borderColor, Colors.blue),
+        borderColor: UKitUtils.getColor(widget.as, widget.as?.borderColor, widget.borderColor, Colors.blue),
       ),
       focusedBorder: inputBorder(
-        borderColor: UKitUtils.getColor(widget.as, widget.as?.focusBorderColor,
-            widget.focusBorderColor, Colors.blue),
+        borderColor: UKitUtils.getColor(widget.as, widget.as?.focusBorderColor, widget.focusBorderColor, Colors.blue),
       ),
       errorBorder: inputBorder(
-        borderColor: UKitUtils.getColor(widget.as, widget.as?.errorBorderColor,
-            widget.errorBorderColor, Colors.red),
+        borderColor: UKitUtils.getColor(widget.as, widget.as?.errorBorderColor, widget.errorBorderColor, Colors.red),
       ),
-      fillColor: UKitUtils.getColor(
-          widget.as, widget.as?.bgColor, widget.bgColor, Colors.transparent),
+      focusedErrorBorder: inputBorder(
+        borderColor: UKitUtils.getColor(widget.as, widget.as?.focusBorderColor, widget.focusBorderColor, Colors.red),
+      ),
+      fillColor: UKitUtils.getColor(widget.as, widget.as?.bgColor, widget.bgColor, Colors.transparent),
       filled: widget.bgColor != null || widget.as?.bgColor != null,
       errorStyle: const TextStyle(color: Colors.red),
-      contentPadding: EdgeInsets.all(widget.padding ?? 20.0),
+      contentPadding: EdgeInsets.all(widget.as?.contentPadding ?? 20.0),
       hintText: widget.hint,
       hintStyle: TextStyle(
-        color: UKitUtils.getColor(
-            widget.as, widget.as?.hintColor, widget.hintColor, Colors.black),
+        fontWeight: FontWeight.w400,
+        color: UKitUtils.getColor(widget.as, widget.as?.hintColor, widget.hintColor, Colors.black),
       ),
       labelText: widget.label,
       labelStyle: TextStyle(
-        color: UKitUtils.getColor(
-            widget.as, widget.as?.labelColor, widget.labelColor, Colors.black),
+        color: UKitUtils.getColor(widget.as, widget.as?.labelColor, widget.labelColor, Colors.black),
       ),
+      suffixIconConstraints: widget.suffixIconConstraints ?? const BoxConstraints(maxHeight: 14),
       suffixIcon: (widget.showObscureSwitch ?? false)
           ? InkWell(
               onTap: () {
@@ -219,19 +240,16 @@ class _UKitTextFieldState extends State<UKitTextField> {
   InputBorder? inputBorder({
     Color? borderColor,
   }) {
-    if (widget.as?.borderType == UKitBorderType.outlineBorder ||
-        widget.borderType == UKitBorderType.outlineBorder) {
+    if (widget.as?.borderType == UKitBorderType.outlineBorder || widget.borderType == UKitBorderType.outlineBorder) {
       return OutlineInputBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(
-            UKitUtils.getDouble(
-                widget.as, widget.as?.borderRadius, widget.borderRadius, 4.0),
+            UKitUtils.getDouble(widget.as, widget.as?.borderRadius, widget.borderRadius, 4.0),
           ),
         ),
         borderSide: BorderSide(
           color: borderColor!,
-          width: UKitUtils.getDouble(
-              widget.as, widget.as?.borderWidth, widget.borderWidth, 1.0),
+          width: UKitUtils.getDouble(widget.as, widget.as?.borderWidth, widget.borderWidth, 1.0),
         ),
       );
     } else if (widget.as?.borderType == UKitBorderType.underlineBorder ||
@@ -239,8 +257,7 @@ class _UKitTextFieldState extends State<UKitTextField> {
       return UnderlineInputBorder(
         borderSide: BorderSide(
           color: borderColor!,
-          width: UKitUtils.getDouble(
-              widget.as, widget.as?.borderWidth, widget.borderWidth, 1.0),
+          width: UKitUtils.getDouble(widget.as, widget.as?.borderWidth, widget.borderWidth, 1.0),
         ),
       );
     } else {
@@ -255,6 +272,7 @@ class _UKitTextFieldState extends State<UKitTextField> {
 TextFormField androidTextField(
   String? hint,
   String? label,
+  String? initialValue,
   Color? hintColor,
   double? padding,
   Color? bgColor,
@@ -271,8 +289,12 @@ TextFormField androidTextField(
   int? maxLines,
   bool? readOnly,
   TextCapitalization? textCapitalization,
+  FocusNode? focusNode,
+  final TextAlign? textAlign,
+  final List<TextInputFormatter>? inputFormatters,
 ) {
   return TextFormField(
+    initialValue: initialValue,
     onChanged: onChanged as void Function(String),
     textCapitalization: textCapitalization ?? TextCapitalization.none,
     obscureText: obscureText ?? false,
@@ -281,6 +303,9 @@ TextFormField androidTextField(
     maxLength: maxLength,
     maxLines: maxLines ?? 1,
     readOnly: readOnly ?? false,
+    focusNode: focusNode,
+    textAlign: textAlign ?? TextAlign.start,
+    inputFormatters: inputFormatters,
     decoration: InputDecoration(
       fillColor: bgColor ?? Colors.transparent,
       filled: bgColor != null,
@@ -333,6 +358,7 @@ CupertinoTextField iosTextField(
   int? maxLines,
   bool? readOnly,
   TextCapitalization? textCapitalization,
+  FocusNode? focusNode,
 ) {
   return CupertinoTextField(
     placeholder: hint,
@@ -345,6 +371,7 @@ CupertinoTextField iosTextField(
     maxLength: maxLength,
     maxLines: maxLines ?? 1,
     readOnly: readOnly ?? false,
+    focusNode: focusNode,
     decoration: BoxDecoration(
       color: bgColor ?? Colors.white,
       border: Border.all(color: borderColor ?? Colors.black26),

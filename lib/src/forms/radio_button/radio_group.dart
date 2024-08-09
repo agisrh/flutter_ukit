@@ -46,8 +46,7 @@ class UKitRadioGroup<T> extends StatelessWidget {
                 groupValue: this.groupValue,
                 onChanged: this.onChanged,
                 textStyle: textStyle,
-                textPosition: radioButtonBuilder.textPosition ??
-                    UKitRadioTextPosition.right,
+                textPosition: radioButtonBuilder.textPosition ?? UKitRadioTextPosition.right,
                 activeColor: activeColor,
                 fillColor: this.fillColor,
                 spaceBetween: radioButtonBuilder.spaceBetween ?? false,
@@ -62,8 +61,7 @@ class UKitRadioGroup<T> extends StatelessWidget {
               groupValue: this.groupValue,
               onChanged: this.onChanged,
               textStyle: textStyle,
-              textPosition: radioButtonBuilder.textPosition ??
-                  UKitRadioTextPosition.right,
+              textPosition: radioButtonBuilder.textPosition ?? UKitRadioTextPosition.right,
               activeColor: activeColor,
               fillColor: this.fillColor,
               spaceBetween: radioButtonBuilder.spaceBetween ?? false,
