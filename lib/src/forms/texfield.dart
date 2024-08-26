@@ -25,6 +25,7 @@ class UKitTextField extends StatefulWidget {
     this.keyboardType,
     required this.onChanged,
     this.onTap,
+    this.onSubmitted,
     this.controller,
     this.bgColor,
     this.floatingLabelBehavior,
@@ -39,6 +40,7 @@ class UKitTextField extends StatefulWidget {
     this.suffixIconConstraints,
     this.textAlign = TextAlign.start,
     this.inputFormatters,
+    this.textInputAction,
   });
 
   @required
@@ -60,6 +62,7 @@ class UKitTextField extends StatefulWidget {
   final TextInputType? keyboardType;
   final Function onChanged;
   final Function? onTap;
+  final Function? onSubmitted;
   final Color? bgColor;
   final FloatingLabelBehavior? floatingLabelBehavior;
   final Widget? suffix;
@@ -73,6 +76,7 @@ class UKitTextField extends StatefulWidget {
   final BoxConstraints? suffixIconConstraints;
   final TextAlign textAlign;
   final List<TextInputFormatter>? inputFormatters;
+  final TextInputAction? textInputAction;
 
   @override
   State<UKitTextField> createState() => _UKitTextFieldState();
@@ -104,6 +108,8 @@ class UKitTextField extends StatefulWidget {
     BoxConstraints? suffixIconConstraints,
     TextAlign? textAlign,
     List<TextInputFormatter>? inputFormatters,
+    Function? onSubmitted,
+    TextInputAction? textInputAction,
   }) {
     if (Platform.isIOS) {
       return iosTextField(
@@ -126,6 +132,8 @@ class UKitTextField extends StatefulWidget {
         readOnly,
         textCapitalization,
         focusNode,
+        onSubmitted,
+        textInputAction,
       );
     } else {
       return androidTextField(
@@ -151,6 +159,8 @@ class UKitTextField extends StatefulWidget {
         focusNode,
         textAlign,
         inputFormatters,
+        onSubmitted,
+        textInputAction,
       );
     }
   }
@@ -182,7 +192,9 @@ class _UKitTextFieldState extends State<UKitTextField> {
       focusNode: widget.focusNode,
       textAlign: widget.textAlign,
       inputFormatters: widget.inputFormatters,
-      style: TextStyle(color: widget.as?.textColor ?? Colors.black),
+      onFieldSubmitted: widget.onSubmitted as void Function(String)?,
+      textInputAction: widget.textInputAction,
+      style: TextStyle(color: widget.as?.textColor ?? Colors.black, fontSize: widget.as?.fontSize ?? 14.0),
     );
   }
 
@@ -211,6 +223,7 @@ class _UKitTextFieldState extends State<UKitTextField> {
       hintStyle: TextStyle(
         fontWeight: FontWeight.w400,
         color: UKitUtils.getColor(widget.as, widget.as?.hintColor, widget.hintColor, Colors.black),
+        fontSize: widget.as?.fontSize ?? 14.0,
       ),
       labelText: widget.label,
       labelStyle: TextStyle(
@@ -224,8 +237,11 @@ class _UKitTextFieldState extends State<UKitTextField> {
                   obscureText = !obscureText;
                 });
               },
-              child: Icon(
-                obscureText ? Icons.visibility_off : Icons.visibility,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 10.0),
+                child: Icon(
+                  obscureText ? Icons.visibility_off : Icons.visibility,
+                ),
               ),
             )
           : widget.suffix,
@@ -290,8 +306,10 @@ TextFormField androidTextField(
   bool? readOnly,
   TextCapitalization? textCapitalization,
   FocusNode? focusNode,
-  final TextAlign? textAlign,
-  final List<TextInputFormatter>? inputFormatters,
+  TextAlign? textAlign,
+  List<TextInputFormatter>? inputFormatters,
+  Function? onSubmitted,
+  TextInputAction? textInputAction,
 ) {
   return TextFormField(
     initialValue: initialValue,
@@ -306,6 +324,8 @@ TextFormField androidTextField(
     focusNode: focusNode,
     textAlign: textAlign ?? TextAlign.start,
     inputFormatters: inputFormatters,
+    onFieldSubmitted: onSubmitted as void Function(String)?,
+    textInputAction: textInputAction,
     decoration: InputDecoration(
       fillColor: bgColor ?? Colors.transparent,
       filled: bgColor != null,
@@ -359,6 +379,8 @@ CupertinoTextField iosTextField(
   bool? readOnly,
   TextCapitalization? textCapitalization,
   FocusNode? focusNode,
+  Function? onSubmitted,
+  TextInputAction? textInputAction,
 ) {
   return CupertinoTextField(
     placeholder: hint,
@@ -380,6 +402,8 @@ CupertinoTextField iosTextField(
     controller: controller,
     onChanged: onChanged as void Function(String),
     keyboardType: keyboardType,
+    onSubmitted: onSubmitted as Function(String)?,
+    textInputAction: textInputAction,
     suffix: Padding(
       padding: EdgeInsets.only(right: padding ?? 16.0),
       child: suffix,

@@ -47,6 +47,10 @@ class UKitTextFieldBuilder extends UKitBuilder {
   /// Set the input's text color
   final Color? textColor;
 
+  ///
+  /// Set the input's text size
+  final double? fontSize;
+
   UKitTextFieldBuilder({
     this.borderRadius,
     this.borderType,
@@ -59,5 +63,6 @@ class UKitTextFieldBuilder extends UKitBuilder {
     this.bgColor,
     this.labelColor,
     this.textColor,
+    this.fontSize,
   });
 }
