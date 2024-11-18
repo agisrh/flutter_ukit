@@ -27,44 +27,41 @@ class UKitButton {
       child: OutlinedButton(
         onPressed: onPressed as void Function(),
         style: ButtonStyle(
-          padding: MaterialStateProperty.all<EdgeInsets>(
+          padding: WidgetStateProperty.all<EdgeInsets>(
             as?.padding ?? const EdgeInsets.all(15.0),
           ),
-          overlayColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
-              if (states.contains(MaterialState.focused)) return Colors.black12;
-              if (states.contains(MaterialState.hovered)) return Colors.black12;
-              if (states.contains(MaterialState.pressed)) return Colors.black12;
+          overlayColor: WidgetStateProperty.resolveWith<Color?>(
+            (Set<WidgetState> states) {
+              if (states.contains(WidgetState.focused)) return Colors.black12;
+              if (states.contains(WidgetState.hovered)) return Colors.black12;
+              if (states.contains(WidgetState.pressed)) return Colors.black12;
               return null; // Defer to the widget's default.
             },
           ),
-          backgroundColor: MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
+          backgroundColor: WidgetStateProperty.resolveWith<Color>(
+            (Set<WidgetState> states) {
               return UKitUtils.getColor(as, as?.bgColor, bgColor, Colors.blue);
             },
           ),
-          shape: MaterialStateProperty.all<OutlinedBorder>(
+          shape: WidgetStateProperty.all<OutlinedBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(
                 UKitUtils.getDouble(as, as?.borderRadius, borderRadius, 0.0),
               ),
             ),
           ),
-          side: MaterialStateProperty.resolveWith<BorderSide>(
-            (Set<MaterialState> states) {
+          side: WidgetStateProperty.resolveWith<BorderSide>(
+            (Set<WidgetState> states) {
               return BorderSide(
-                width:
-                    UKitUtils.getDouble(as, as?.borderWidth, borderWidth, 2.0),
-                color: UKitUtils.getColor(
-                    as, as?.borderColor, borderColor, Colors.transparent),
+                width: UKitUtils.getDouble(as, as?.borderWidth, borderWidth, 2.0),
+                color: UKitUtils.getColor(as, as?.borderColor, borderColor, Colors.transparent),
               );
             },
           ),
         ),
         child: FractionallySizedBox(
-          child: loading
-              ? UKitButtonLoading(as, labelColor)
-              : UKitButtonContent(as, label, labelColor, labelStyle, icon),
+          child:
+              loading ? UKitButtonLoading(as, labelColor) : UKitButtonContent(as, label, labelColor, labelStyle, icon),
         ),
       ),
     );
@@ -91,34 +88,33 @@ class UKitButton {
       child: TextButton(
         onPressed: onPressed as void Function(),
         style: ButtonStyle(
-          padding: MaterialStateProperty.all<EdgeInsets>(
+          padding: WidgetStateProperty.all<EdgeInsets>(
             as?.padding ?? const EdgeInsets.all(15.0),
           ),
-          overlayColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
-              if (states.contains(MaterialState.focused)) return Colors.black12;
-              if (states.contains(MaterialState.hovered)) return Colors.black12;
-              if (states.contains(MaterialState.pressed)) return Colors.black12;
+          overlayColor: WidgetStateProperty.resolveWith<Color?>(
+            (Set<WidgetState> states) {
+              if (states.contains(WidgetState.focused)) return Colors.black12;
+              if (states.contains(WidgetState.hovered)) return Colors.black12;
+              if (states.contains(WidgetState.pressed)) return Colors.black12;
               return null; // Defer to the widget's default.
             },
           ),
-          backgroundColor: MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
+          backgroundColor: WidgetStateProperty.resolveWith<Color>(
+            (Set<WidgetState> states) {
               return UKitUtils.getColor(as, as?.bgColor, bgColor, Colors.blue);
             },
           ),
-          elevation: MaterialStateProperty.resolveWith<double>(
-            (Set<MaterialState> states) {
+          elevation: WidgetStateProperty.resolveWith<double>(
+            (Set<WidgetState> states) {
               return UKitUtils.getDouble(as, as?.elevation, elevation, 1.0);
             },
           ),
-          shadowColor: MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-              return UKitUtils.getColor(
-                  as, as?.shadowColor, shadowColor, Colors.black);
+          shadowColor: WidgetStateProperty.resolveWith<Color>(
+            (Set<WidgetState> states) {
+              return UKitUtils.getColor(as, as?.shadowColor, shadowColor, Colors.black);
             },
           ),
-          shape: MaterialStateProperty.all<OutlinedBorder>(
+          shape: WidgetStateProperty.all<OutlinedBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(
                 UKitUtils.getDouble(as, as?.borderRadius, borderRadius, 0.0),
@@ -126,9 +122,7 @@ class UKitButton {
             ),
           ),
         ),
-        child: loading
-            ? UKitButtonLoading(as, labelColor)
-            : UKitButtonContent(as, label, labelColor, labelStyle, icon),
+        child: loading ? UKitButtonLoading(as, labelColor) : UKitButtonContent(as, label, labelColor, labelStyle, icon),
       ),
     );
   }
@@ -153,30 +147,28 @@ class UKitButton {
       child: TextButton(
         onPressed: onPressed as void Function(),
         style: ButtonStyle(
-          padding: MaterialStateProperty.all<EdgeInsets>(
+          padding: WidgetStateProperty.all<EdgeInsets>(
             as?.padding ?? const EdgeInsets.all(15.0),
           ),
-          overlayColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
-              if (states.contains(MaterialState.focused)) return Colors.black12;
-              if (states.contains(MaterialState.hovered)) return Colors.black12;
-              if (states.contains(MaterialState.pressed)) return Colors.black12;
+          overlayColor: WidgetStateProperty.resolveWith<Color?>(
+            (Set<WidgetState> states) {
+              if (states.contains(WidgetState.focused)) return Colors.black12;
+              if (states.contains(WidgetState.hovered)) return Colors.black12;
+              if (states.contains(WidgetState.pressed)) return Colors.black12;
               return null; // Defer to the widget's default.
             },
           ),
-          backgroundColor: MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-              return UKitUtils.getColor(
-                  as, as?.bgColor, color.withOpacity(0.2), Colors.blue);
+          backgroundColor: WidgetStateProperty.resolveWith<Color>(
+            (Set<WidgetState> states) {
+              return UKitUtils.getColor(as, as?.bgColor, color.withOpacity(0.2), Colors.blue);
             },
           ),
-          shadowColor: MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-              return UKitUtils.getColor(
-                  as, as?.shadowColor, shadowColor, color);
+          shadowColor: WidgetStateProperty.resolveWith<Color>(
+            (Set<WidgetState> states) {
+              return UKitUtils.getColor(as, as?.shadowColor, shadowColor, color);
             },
           ),
-          shape: MaterialStateProperty.all<OutlinedBorder>(
+          shape: WidgetStateProperty.all<OutlinedBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(
                 UKitUtils.getDouble(as, as?.borderRadius, borderRadius, 0.0),
@@ -184,9 +176,7 @@ class UKitButton {
             ),
           ),
         ),
-        child: loading
-            ? UKitButtonLoading(as, color)
-            : UKitButtonContent(as, label, color, labelStyle, icon),
+        child: loading ? UKitButtonLoading(as, color) : UKitButtonContent(as, label, color, labelStyle, icon),
       ),
     );
   }

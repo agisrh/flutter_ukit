@@ -35,11 +35,9 @@ class UKitRadioButton<T> extends StatelessWidget {
         }
       },
       child: Row(
-        mainAxisAlignment: (this.textPosition == UKitRadioTextPosition.right &&
-                this.spaceBetween == false)
+        mainAxisAlignment: (this.textPosition == UKitRadioTextPosition.right && this.spaceBetween == false)
             ? MainAxisAlignment.start
-            : (this.textPosition == UKitRadioTextPosition.left &&
-                    this.spaceBetween == false)
+            : (this.textPosition == UKitRadioTextPosition.left && this.spaceBetween == false)
                 ? MainAxisAlignment.end
                 : MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -57,8 +55,7 @@ class UKitRadioButton<T> extends StatelessWidget {
             onChanged: this.onChanged,
             value: this.value,
             activeColor: activeColor,
-            fillColor:
-                fillColor != null ? MaterialStateProperty.all(fillColor) : null,
+            fillColor: fillColor != null ? WidgetStateProperty.all(fillColor) : null,
           ),
           this.textPosition == UKitRadioTextPosition.right
               ? Expanded(

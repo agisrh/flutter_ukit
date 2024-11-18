@@ -11,13 +11,16 @@ class UKitBottomSheet {
     bool hideHead = false,
     bool scroll = true,
   }) async {
+    // Check if the current theme is dark or light
+    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     await showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
       isDismissible: true,
       isScrollControlled: true,
       enableDrag: enableDrag,
-      barrierColor: Colors.black.withOpacity(0.7),
+      barrierColor: isDarkMode ? Colors.black.withOpacity(0.7) : Colors.white.withOpacity(0.7),
       builder: (BuildContext context) {
         return Container(
           width: double.infinity,
@@ -28,7 +31,11 @@ class UKitBottomSheet {
                     topLeft: Radius.circular(borderRadus),
                     topRight: Radius.circular(borderRadus),
                   ),
-            color: floatted ? Colors.transparent : Colors.white,
+            color: floatted
+                ? Colors.transparent
+                : isDarkMode
+                    ? Colors.grey[900] // Dark background color
+                    : Colors.white, // Light background color
           ),
           margin: EdgeInsets.fromLTRB(
             floatted ? 10.0 : 0.0,
@@ -40,7 +47,11 @@ class UKitBottomSheet {
             borderRadius: BorderRadius.circular(borderRadus),
             child: Container(
               width: double.infinity,
-              color: floatted ? Colors.white : Colors.transparent,
+              color: floatted
+                  ? isDarkMode
+                      ? Colors.grey[900] // Dark mode float background
+                      : Colors.white // Light mode float background
+                  : Colors.transparent,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -54,7 +65,7 @@ class UKitBottomSheet {
                           ///
                           Align(
                             alignment: Alignment.topCenter,
-                            child: _swipeIndicator,
+                            child: _swipeIndicator(isDarkMode),
                           ),
 
                           ///
@@ -88,16 +99,16 @@ class UKitBottomSheet {
       },
     );
   }
-}
 
-Container get _swipeIndicator => Container(
-      height: 5.0,
-      width: 80.0,
-      margin: const EdgeInsets.only(
-        top: 16.0,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        color: Colors.black26,
-      ),
-    );
+  static Container _swipeIndicator(bool isDarkMode) => Container(
+        height: 5.0,
+        width: 80.0,
+        margin: const EdgeInsets.only(
+          top: 16.0,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: isDarkMode ? Colors.white54 : Colors.black26, // Adjust swipe color based on theme
+        ),
+      );
+}
