@@ -16,3 +16,9 @@
 - Update custom checkbox
 - Update custom typography
 - Update custom bottom sheet
+
+## 0.0.4
+- Support dark theme for bottom sheet
+- Remove deprecated MaterialState changed to WidgetState
+- Add animation progressive loading
+- Update position of text radio button
