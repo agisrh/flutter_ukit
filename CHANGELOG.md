@@ -22,3 +22,8 @@
 - Remove deprecated MaterialState changed to WidgetState
 - Add animation progressive loading
 - Update position of text radio button
+
+## 0.0.5
+- Fix bugs overlay color bottomsheet
+- Remove background color button secondary
+- Add custom dialog

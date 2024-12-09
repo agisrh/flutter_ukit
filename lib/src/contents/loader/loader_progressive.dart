@@ -13,7 +13,7 @@ class UkitLoaderProgressive extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _UkitLoaderProgressiveState createState() => _UkitLoaderProgressiveState();
+  State<UkitLoaderProgressive> createState() => _UkitLoaderProgressiveState();
 }
 
 class _UkitLoaderProgressiveState extends State<UkitLoaderProgressive> with SingleTickerProviderStateMixin {
