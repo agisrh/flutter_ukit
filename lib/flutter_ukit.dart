@@ -32,6 +32,7 @@ export 'src/contents/loader/loader_progressive.dart';
 export 'src/components/bottom_sheet/bottom_sheet.dart';
 export 'src/forms/date_picker/factory_date_picker.dart';
 export 'src/forms/time_picker/factory_time_picker.dart';
+export 'src/components/notification/toastification.dart';
 export 'src/components/action_sheet/factory_action_sheet.dart';
 export 'src/components/bottom_sheet/draggable_bottom_sheet.dart';
 export 'src/components/dialog/custom/custom_dialog_helper.dart';

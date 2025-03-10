@@ -160,7 +160,7 @@ class UKitButton {
           ),
           backgroundColor: WidgetStateProperty.resolveWith<Color>(
             (Set<WidgetState> states) {
-              return UKitUtils.getColor(as, as?.bgColor, color.withOpacity(0.2), Colors.blue);
+              return UKitUtils.getColor(as, as?.bgColor, color.withValues(alpha: 0.2), Colors.blue);
             },
           ),
           shadowColor: WidgetStateProperty.resolveWith<Color>(

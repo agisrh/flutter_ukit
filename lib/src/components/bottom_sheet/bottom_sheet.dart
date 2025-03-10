@@ -20,7 +20,7 @@ class UKitBottomSheet {
       isDismissible: true,
       isScrollControlled: true,
       enableDrag: enableDrag,
-      barrierColor: Colors.black.withOpacity(0.7),
+      barrierColor: Colors.black.withValues(alpha: 0.7),
       builder: (BuildContext context) {
         return Container(
           width: double.infinity,
