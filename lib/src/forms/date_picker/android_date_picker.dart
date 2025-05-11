@@ -20,15 +20,23 @@ class AndroidDatePicker {
       cancelText: as?.cancelText ?? 'CANCEL',
       builder: (context, child) {
         return Theme(
-          data: Theme.of(context).copyWith(
-            colorScheme: ColorScheme.light(
-              primary: as?.themeColor ?? Colors.blue,
-            ),
-            textButtonTheme: TextButtonThemeData(
-              style: TextButton.styleFrom(
-                  foregroundColor: as?.themeColor ?? Colors.blue),
-            ),
-          ),
+          data: as?.isDarkTheme == true
+              ? Theme.of(context).copyWith(
+                  colorScheme: ColorScheme.dark(
+                    primary: as?.themeColor ?? Colors.blue,
+                  ),
+                  textButtonTheme: TextButtonThemeData(
+                    style: TextButton.styleFrom(foregroundColor: as?.themeColor ?? Colors.blue),
+                  ),
+                )
+              : Theme.of(context).copyWith(
+                  colorScheme: ColorScheme.light(
+                    primary: as?.themeColor ?? Colors.blue,
+                  ),
+                  textButtonTheme: TextButtonThemeData(
+                    style: TextButton.styleFrom(foregroundColor: as?.themeColor ?? Colors.blue),
+                  ),
+                ),
           child: child!,
         );
       },

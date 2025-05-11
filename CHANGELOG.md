@@ -27,3 +27,6 @@
 - Fix bugs overlay color bottomsheet
 - Remove background color button secondary
 - Add custom dialog
+
+## 0.0.6
+- Date picker support dark theme

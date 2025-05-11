@@ -16,7 +16,7 @@ class IosDatePicker {
         builder: (BuildContext builder) {
           return Container(
             height: context.screenHeight * 0.25,
-            color: Colors.white,
+            color: as?.isDarkTheme == true ? Colors.black : Colors.white,
             child: Column(
               children: [
                 Padding(
@@ -55,7 +55,17 @@ class IosDatePicker {
                   ),
                 ),
                 Flexible(
+                    child: CupertinoTheme(
+                  data: CupertinoThemeData(
+                    brightness: as?.isDarkTheme == true ? Brightness.dark : Brightness.light,
+                    primaryColor: as?.isDarkTheme == true ? Colors.white : Colors.black,
+                    textTheme: CupertinoTextThemeData(
+                      dateTimePickerTextStyle: TextStyle(
+                          color: as?.isDarkTheme == true ? Colors.white : as?.themeColor ?? Colors.black), // Warna teks
+                    ),
+                  ),
                   child: CupertinoDatePicker(
+                    backgroundColor: as?.isDarkTheme == true ? Colors.black : Colors.white,
                     mode: CupertinoDatePickerMode.date,
                     onDateTimeChanged: (value) {
                       onSave(value);
@@ -64,7 +74,7 @@ class IosDatePicker {
                     minimumDate: minDate,
                     maximumDate: maxDate,
                   ),
-                ),
+                )),
               ],
             ),
           );
